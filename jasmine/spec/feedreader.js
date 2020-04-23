@@ -1,5 +1,5 @@
 /* feedreader.js
- *
+ * test commit
  * This is the spec file that Jasmine will read and contains
  * all of the tests that will be run against your application.
  */
