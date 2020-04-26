@@ -49,7 +49,8 @@ $(function() {
         
         /* counts child elements of feed to check that the page has at least one element  */
         it('load feed is called, completes its work and contains at least one .entry element within the .feed container', function(done){
-            expect(document.getElementsByClassName('feed')[0].childElementCount).not.toEqual(0);
+            expect(document.getElementsByClassName('entry')[0].childElementCount).not.toEqual(0);
+            console.log(document.getElementsByClassName('entry')[0].childElementCount)
             done();
         })
     })
@@ -63,16 +64,17 @@ $(function() {
             loadFeed(0, function() {
                 feedArticlesStart = document.querySelectorAll('h2')[0].innerText;
                 done();
-            });
-            loadFeed(1, function() {
-                feedArticlesAfterClick = document.querySelectorAll('h2')[0].innerText;
-                done();
+                    loadFeed(1, function() {
+                    feedArticlesAfterClick = document.querySelectorAll('h2')[0].innerText;
+                    done();
+                }); 
             }); 
         });
 
         /* compares the article heading text from feed 1 and 2 and checks if they are different */
         it('checks that content changes when new feed is loaded', function() {
             expect(feedArticlesStart).not.toEqual(feedArticlesAfterClick);
+            console.log(feedArticlesStart,feedArticlesAfterClick);
         })
     }) 
 }());
