@@ -109,27 +109,51 @@ $(function() {
          */
         it('load feed is called, completes its work and contains at least one .entry element with the .feed container', function(done){
             expect(document.getElementsByClassName('feed')[0].childElementCount).not.toEqual(0);
-            //expect()
             done();
         })
 
     })
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function () {
+        let feedArticlesStart;
+        let feedArticlesAfterClick;
         beforeEach(function(done) {
-            setTimeout(function() {
-              value = 0;
-              done();
-            }, 1000);
-        });
-        
-        it('content changes when new feed is loaded', function(done) {
+            loadFeed(0);
+            //feedArticlesStart = document.querySelector('h2').innerText;
+            done();
+            loadFeed(1);
+            feedArticlesAfterClick = document.querySelector('h2').innerText;
+           
+            console.log(feedArticlesStart,feedArticlesAfterClick);
             
-        })
-    })
+            done();
+        });
+        // afterEach(function(done) {
+        //     loadFeed(1);
+        //     feedArticlesAfterClick = document.querySelector('h2').innerText;
+           
+        //     //console.log(feedArticlesStart,feedArticlesAfterClick);
+            
+        //     done();
+        //     });
+
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        
+        it('checks that content changes when new feed is loaded', function(done) {
+
+            
+            loadFeed(0);
+            feedArticlesStart = document.querySelector('h2').innerText;      
+            //console.log(feedArticlesStart);    
+            //feedArticlesAfterClick = document.querySelector('.feed');
+            //console.log(feedArticlesAfterClick);
+            expect(feedArticlesStart != feedArticlesAfterClick).toBe(true);
+            done();
+        })
+    })
+
     
 }());
