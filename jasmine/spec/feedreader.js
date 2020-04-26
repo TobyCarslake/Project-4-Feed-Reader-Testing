@@ -31,10 +31,10 @@ $(function() {
 
         // triggers a click on menu icon, checks class of body if it equals blank it passes. Then clicks again and checks class of body, if it equals 'menu-hidden' it passes.
         it("visibility is toggled when clicked", function () {
-              $('.menu-icon-link').trigger('click');
-              expect(document.getElementsByTagName("body")[0].getAttribute("class")).toEqual('');
-              $('.menu-icon-link').trigger('click');
-              expect(document.getElementsByTagName("body")[0].getAttribute("class")).toEqual('menu-hidden');        
+            $('.menu-icon-link').click();  
+            expect(document.getElementsByTagName("body")[0].getAttribute("class")).toEqual('');
+            $('.menu-icon-link').click();
+            expect(document.getElementsByTagName("body")[0].getAttribute("class")).toEqual('menu-hidden');        
         });
     });
 
